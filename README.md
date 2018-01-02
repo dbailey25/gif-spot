@@ -1,1 +1,1 @@
-# gifopolis
+# gifspot
