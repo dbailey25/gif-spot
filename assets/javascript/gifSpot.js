@@ -12,6 +12,28 @@ $(document).ready(function(){
     }
   }
 
+  $(".buttons").on("click", function(event) {
+    event.preventDefault();
 
+      var query = $(this).attr('id');
+      var q = query.replace(' ', '+');
+      console.log('q', q);
+      var queryURL = "https://api.giphy.com/v1/gifs/trending?api_key=qkaEriFpJGD4wsNP9Um6v9eqkQd3puIU&limit=10&q=" + q;
+      $.ajax({
+            url: queryURL,
+            method: "GET"
+          }).done(function(response) {
+            console.log(response);
+            // var imageUrl = response.data.image_original_url;
+            //
+            // var catImage = $("<img>");
+            //
+            // catImage.attr("src", imageUrl);
+            // catImage.attr("alt", "cat image");
+            //
+            // $("#images").prepend(catImage);
+          });
+
+    });
 
   });
