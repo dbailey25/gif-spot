@@ -1,7 +1,3 @@
-#main-column {
-  background-color: red;
-}
-
-#side-column {
-  background-color: blue;
+.buttons {
+  margin: 5px;
 }
