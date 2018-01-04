@@ -18,20 +18,24 @@ $(document).ready(function(){
       var query = $(this).attr('id');
       var q = query.replace(' ', '+');
       console.log('q', q);
-      var queryURL = "https://api.giphy.com/v1/gifs/trending?api_key=qkaEriFpJGD4wsNP9Um6v9eqkQd3puIU&limit=10&q=" + q;
+      var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=qkaEriFpJGD4wsNP9Um6v9eqkQd3puIU&limit=10&q=" + q;
       $.ajax({
             url: queryURL,
             method: "GET"
           }).done(function(response) {
             console.log(response);
-            // var imageUrl = response.data.image_original_url;
-            //
-            // var catImage = $("<img>");
-            //
-            // catImage.attr("src", imageUrl);
-            // catImage.attr("alt", "cat image");
-            //
-            // $("#images").prepend(catImage);
+            $('#main-column').empty();
+            for (var i = 0; i < response.data.length; i++) {
+              var gifUrl = response.data[i].images.fixed_height.url;
+              console.log(query + ' gif');
+              var gifImage = $('<img>');
+
+              gifImage.attr('src', gifUrl);
+              gifImage.attr('alt', query + ' gif');
+
+              $('#main-column').append(gifImage);
+            };
+
           });
 
     });
