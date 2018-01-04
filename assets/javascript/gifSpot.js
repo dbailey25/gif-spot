@@ -42,6 +42,7 @@ $(document).ready(function() {
 
             gifImage.attr('src', gifUrl);
             gifImage.attr('alt', query + ' gif');
+            gifImage.attr('class', 'gifs');
 
             $('#main-column').append(gifImage);
           }
