@@ -28,6 +28,7 @@ $(document).ready(function() {
 
       function generateGifs() {
           $('#main-column').empty();
+          $('#main-column').text('Click an image below to play the gif!')
           for (var i = 0; i < gifStatic.length; i++) {
             var gifDivId = 'gifDiv' + i;
             var gifDiv = $('<div>', {'class': 'gifDiv', 'id': gifDivId})
